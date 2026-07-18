@@ -1,0 +1,275 @@
+/* ============================================================
+   WP Block — Admin Editor Styles
+   ============================================================ */
+
+#wpb-app {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "toolbar  toolbar"
+        "canvas   sidebar"
+        "elements elements"
+        "preview  preview";
+    gap: 12px;
+    margin-top: 10px;
+    min-height: 500px;
+}
+
+/* ---- Toolbar ---- */
+#wpb-toolbar {
+    grid-area: toolbar;
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.wpb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.wpb-btn:hover { background: #135e96; }
+.wpb-btn-secondary { background: #6c757d; }
+.wpb-btn-secondary:hover { background: #5a6268; }
+.wpb-btn-danger { background: #dc3545; padding: 3px 8px; font-size: 11px; }
+.wpb-btn-danger:hover { background: #b02a37; }
+
+/* ---- Canvas ---- */
+#wpb-canvas {
+    grid-area: canvas;
+    min-height: 300px;
+    padding: 10px;
+    background: #fafafa;
+    border: 2px dashed #c3c4c7;
+    border-radius: 4px;
+    overflow-y: auto;
+}
+
+#wpb-canvas:empty::before {
+    content: 'Clicca "Aggiungi Riga" per iniziare a costruire il layout.';
+    display: block;
+    text-align: center;
+    color: #aaa;
+    margin-top: 80px;
+    font-size: 14px;
+}
+
+/* ---- Row ---- */
+.wpb-row-wrap {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.wpb-row-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: #2271b1;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: move;
+}
+
+.wpb-row-header .wpb-row-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.wpb-col-selector {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* ---- Columns ---- */
+.wpb-columns {
+    display: flex;
+    gap: 0;
+}
+
+.wpb-column {
+    flex: 1;
+    min-height: 80px;
+    padding: 8px;
+    border-right: 1px dashed #e0e0e0;
+    position: relative;
+}
+.wpb-column:last-child { border-right: none; }
+
+.wpb-column-drop-hint {
+    text-align: center;
+    color: #bbb;
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+/* ---- Elements in canvas ---- */
+.wpb-element-item {
+    background: #fff;
+    border: 1px solid #e2e4e7;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    padding: 8px 10px;
+    cursor: move;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.15s;
+}
+.wpb-element-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.12); border-color: #2271b1; }
+.wpb-element-item.wpb-selected { border-color: #2271b1; box-shadow: 0 0 0 2px rgba(34,113,177,0.3); }
+
+.wpb-element-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.wpb-element-actions {
+    display: flex;
+    gap: 4px;
+}
+
+/* ---- Sidebar ---- */
+#wpb-sidebar {
+    grid-area: sidebar;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-y: auto;
+}
+
+#wpb-sidebar-inner {
+    padding: 14px;
+}
+
+.wpb-sidebar-placeholder {
+    color: #aaa;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.wpb-field-group {
+    margin-bottom: 14px;
+}
+
+.wpb-field-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.wpb-field-group input[type="text"],
+.wpb-field-group input[type="number"],
+.wpb-field-group textarea,
+.wpb-field-group select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.wpb-field-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.wpb-sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    color: #2271b1;
+}
+
+/* ---- Elements Panel ---- */
+#wpb-elements-panel {
+    grid-area: elements;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+#wpb-elements-panel h3 {
+    font-size: 13px;
+    margin: 0 0 10px;
+    color: #444;
+}
+
+#wpb-elements-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wpb-element-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: #f6f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s;
+}
+.wpb-element-btn:hover {
+    background: #2271b1;
+    color: #fff;
+    border-color: #2271b1;
+}
+
+/* ---- Shortcode Preview ---- */
+#wpb-shortcode-preview {
+    grid-area: preview;
+    background: #f6f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 14px;
+}
+
+#wpb-shortcode-output {
+    font-size: 12px;
+    word-break: break-all;
+    color: #444;
+}
+
+/* ---- Sortable ghost ---- */
+.sortable-ghost {
+    opacity: 0.4;
+    background: #d0e8ff !important;
+}
+.sortable-chosen {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}

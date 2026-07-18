@@ -1,0 +1,46 @@
+/* ============================================================
+   WP Block — Frontend Styles
+   ============================================================ */
+
+.wpb-layout {
+    width: 100%;
+}
+
+.wpb-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.wpb-column {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Layout a colonne: 1 colonna */
+.wpb-cols-1 .wpb-column  { flex: 0 0 100%; }
+
+/* Layout a colonne: 2 colonne */
+.wpb-cols-2 .wpb-column  { flex: 0 0 50%; }
+
+/* Layout a colonne: 3 colonne */
+.wpb-cols-3 .wpb-column  { flex: 0 0 33.333%; }
+
+/* Layout a colonne: 4 colonne */
+.wpb-cols-4 .wpb-column  { flex: 0 0 25%; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wpb-row { flex-direction: column; }
+    .wpb-column { flex: 0 0 100% !important; padding: 0 0 10px; }
+}
+
+/* ---- Elementi ---- */
+.wpb-element {
+    margin-bottom: 15px;
+}
+
+.wpb-element-text {
+    line-height: 1.6;
+}
